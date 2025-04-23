@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-neutral-950 py-12 px-4">
+    <div class="w-full max-w-md bg-neutral-900 p-8 rounded-2xl shadow-lg">
+        <h1 class="text-3xl font-extrabold text-gray-100 text-center mb-8 tracking-widest">Login do Admin</h1>
+
+        <form method="POST" action="{{ url_for('login') }}" class="space-y-6">
+            {{ form.hidden_tag() }}
+
+            <div>
+                <label for="username" class="block text-gray-400 mb-2 text-sm tracking-wider">Usuário</label>
+                {{ form.username(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+
+            <div>
+                <label for="password" class="block text-gray-400 mb-2 text-sm tracking-wider">Senha</label>
+                {{ form.password(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+
+            <div class="pt-4">
+                {{ form.submit(class="w-full bg-rose-700 hover:bg-rose-600 transition-colors text-white font-bold py-3 rounded-lg tracking-wider") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

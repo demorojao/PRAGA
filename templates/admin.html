@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-neutral-950 py-12 px-4">
+    <div class="w-full max-w-md bg-neutral-900 p-8 rounded-2xl shadow-lg">
+        <h1 class="text-3xl font-extrabold text-gray-100 text-center mb-8 tracking-widest">Cadastrar Nova Bolsa</h1>
+
+        <form method="POST" action="{{ url_for('admin') }}" enctype="multipart/form-data" class="space-y-6">
+            {{ form.hidden_tag() }}
+            
+            <div>
+                <label for="nome" class="block text-gray-400 mb-2 text-sm tracking-wider">Nome da Bolsa</label>
+                {{ form.nome(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+            
+            <div>
+                <label for="descricao" class="block text-gray-400 mb-2 text-sm tracking-wider">Descrição</label>
+                {{ form.descricao(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+
+            <div>
+                <label for="preco" class="block text-gray-400 mb-2 text-sm tracking-wider">Preço</label>
+                {{ form.preco(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+
+            <div>
+                <label for="imagem" class="block text-gray-400 mb-2 text-sm tracking-wider">Imagem</label>
+                {{ form.imagem(class="w-full p-3 rounded-lg bg-neutral-800 border border-neutral-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-rose-600") }}
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-rose-700 hover:bg-rose-600 transition-colors text-white font-bold py-3 rounded-lg tracking-wider">
+                    Cadastrar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
