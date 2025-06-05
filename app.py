@@ -75,11 +75,12 @@ def login():
 def admin():
     if not is_admin():
         return redirect(url_for('login'))
-    
+
     form = BolsaForm()
     if form.validate_on_submit():
         imagem = form.imagem.data
         if imagem and allowed_file(imagem.filename):
+            os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
             filename = secure_filename(imagem.filename)
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             imagem.save(filepath)
