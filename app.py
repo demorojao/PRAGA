@@ -96,7 +96,7 @@ def admin():
             return redirect(url_for('index'))
     return render_template('admin.html', form=form)
 
-# Rota para alternar o status de "vendida" para "não vendida"
+# Rota para alternar o status de venda da bolsa (marca ou desmarca como vendida)
 @app.route('/bolsa/<int:id>/alternar_vendida')
 def alternar_vendida(id):
     if not is_admin():
